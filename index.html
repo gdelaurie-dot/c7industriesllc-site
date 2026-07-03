@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C7 Industries LLC | Aerial Drone Video &amp; Photography | Northwest Arkansas</title>
+  <meta name="description" content="Northwest Arkansas' premier aerial drone video &amp; photography company, based in Huntsville, AR. Real estate, commercial, and scenic drone footage serving Fayetteville, Bentonville, Springdale, Rogers &amp; Eureka Springs.">
+  <link rel="canonical" href="https://c7industriesllc.com/">
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="C7 Industries LLC | Aerial Drone Video &amp; Photography | Northwest Arkansas">
+  <meta property="og:description" content="Northwest Arkansas' premier aerial drone video &amp; photography company, based in Huntsville, AR. Real estate, commercial, and scenic drone footage serving Fayetteville, Bentonville, Springdale, Rogers &amp; Eureka Springs.">
+  <meta property="og:url" content="https://c7industriesllc.com/">
+  <meta property="og:site_name" content="C7 Industries LLC">
+  <meta property="og:image" content="https://img.youtube.com/vi/6-00GpqCgkg/maxresdefault.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="C7 Industries LLC | Aerial Drone Video &amp; Photography | Northwest Arkansas">
+  <meta name="twitter:description" content="Northwest Arkansas' premier aerial drone video &amp; photography company, based in Huntsville, AR.">
+  <meta name="twitter:image" content="https://img.youtube.com/vi/6-00GpqCgkg/maxresdefault.jpg">
+
+  <!-- Local business structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "C7 Industries LLC",
+    "image": "https://img.youtube.com/vi/6-00GpqCgkg/maxresdefault.jpg",
+    "url": "https://c7industriesllc.com/",
+    "telephone": "+1-479-789-0918",
+    "email": "c7industriesllc@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Huntsville",
+      "addressRegion": "AR",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Fayetteville, AR", "Bentonville, AR", "Springdale, AR", "Rogers, AR", "Eureka Springs, AR", "Madison County, AR"],
+    "description": "Northwest Arkansas' premier aerial drone video and photography company offering real estate, commercial, cinematic, and event drone services.",
+    "sameAs": [
+      "https://www.youtube.com/@C7IndustriesLLC",
+      "https://www.facebook.com/C7IndustriesLLC"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       ROOT & RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #050505;
+      --dark:       #0d0f10;
+      --dark-2:     #141618;
+      --dark-3:     #1c1f22;
+      --green:      #2d6a4f;
+      --green-mid:  #40916c;
+      --green-light:#52b788;
+      --green-glow: #74c69d;
+      --white:      #ffffff;
+      --grey-1:     #e8e8e8;
+      --grey-2:     #9ca3af;
+      --grey-3:     #4b5563;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body:    'Montserrat', sans-serif;
+      --font-ui:      'Inter', sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--grey-1);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    /* ============================================================
+       CUSTOM CURSOR
+    ============================================================ */
+    #cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--green-light);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+    #cursor-ring {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(82,183,136,0.5);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out),
+                  left 0.12s, top 0.12s, background 0.3s, border-color 0.3s;
+    }
+    body:hover #cursor-dot { opacity: 1; }
+    a:hover ~ #cursor-ring,
+    button:hover ~ #cursor-ring { width: 56px; height: 56px; }
+
+    /* ============================================================
+       PRELOADER
+    ============================================================ */
+    #preloader {
+      position: fixed; inset: 0;
+      background: var(--black);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+    }
+    #preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .preloader-logo {
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out) 0.3s forwards;
+    }
+    .preloader-logo .g-mark-svg {
+      height: clamp(5rem, 12vw, 9rem);
+      width: auto;
+    }
+    .preloader-line {
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      margin-top: 1.5rem;
+      animation: expandLine 1.2s var(--ease-out) 0.6s forwards;
+    }
+    .preloader-sub {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--grey-2);
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out) 1s forwards;
+    }
+
+    @keyframes expandLine  { to { width: 200px; } }
+    @keyframes fadeInUp    { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.5rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+    }
+    #nav.scrolled {
+      background: rgba(5,5,5,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.1rem;
+      color: var(--white);
+    }
+    .nav-logo .g-mark-svg { height: 3.2rem; width: auto; flex-shrink: 0; }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      color: var(--grey-2);
+      padding-top: 2px;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-2);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--green-light);
+      transition: width 0.3s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--white) !important;
+      padding: 0.65rem 1.5rem;
+      border-radius: 3px;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.1em;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-mid) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--white);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0;
+      background: var(--black);
+      z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: 0.1em;
+      color: var(--grey-1);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--green-light); }
+    .mobile-close {
+      position: absolute; top: 2rem; right: 2rem;
+      background: none; border: none; cursor: pointer;
+      font-size: 2rem; color: var(--grey-2);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(45,106,79,0.25) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(82,183,136,0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #050505 0%, #0a0f0c 50%, #050505 100%);
+    }
+
+    /* Animated grid lines */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(45,106,79,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,106,79,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 100%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 100%, black 30%, transparent 80%);
+    }
+    @keyframes gridMove {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 60px 60px, 60px 60px; }
+    }
+
+    /* Floating particles */
+    .hero-particles {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: var(--green-light);
+      border-radius: 50%;
+      opacity: 0;
+      animation: floatUp var(--dur, 8s) var(--delay, 0s) infinite ease-in;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(-80vh) translateX(var(--drift, 30px)); opacity: 0; }
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+      max-width: 1100px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s var(--ease-out) 1.6s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .hero-title .line {
+      display: block;
+      transform: translateY(110%);
+      animation: slideUp 1s var(--ease-out) forwards;
+    }
+    .hero-title .line:nth-child(1) { animation-delay: 1.8s; }
+    .hero-title .line:nth-child(2) { animation-delay: 2.0s; color: var(--green-light); }
+    .hero-title .line:nth-child(3) { animation-delay: 2.2s; }
+
+    @keyframes slideUp { to { transform: translateY(0); } }
+
+    .hero-sub {
+      font-family: var(--font-ui);
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      color: var(--grey-2);
+      max-width: 520px;
+      margin: 2rem auto 3rem;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out) 2.6s forwards;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 1.2rem;
+      justify-content: center; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out) 2.8s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--green);
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: 4px;
+      border: none; cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(45,106,79,0.4); }
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: transparent;
+      color: var(--grey-1);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--green-light); color: var(--green-light); transform: translateY(-2px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out) 3.2s forwards;
+      cursor: pointer;
+    }
+    .hero-scroll span {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--green-light));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50% { transform: scaleY(0.6); opacity: 1; }
+    }
+
+    /* ============================================================
+       STATS BAR
+    ============================================================ */
+    #stats {
+      background: var(--dark-2);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding: 2.5rem 4rem;
+    }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .stat-item { padding: 0.5rem 1rem; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-number span { color: var(--green-light); }
+    .stat-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-top: 0.4rem;
+    }
+    .stat-divider {
+      width: 1px; background: rgba(255,255,255,0.06);
+      align-self: stretch;
+    }
+
+    /* ============================================================
+       SECTION COMMONS
+    ============================================================ */
+    section { padding: 8rem 4rem; }
+
+    .section-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .section-desc {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--grey-2);
+      max-width: 540px;
+      line-height: 1.8;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left  { opacity:0; transform:translateX(-40px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+    .reveal-right { opacity:0; transform:translateX(40px);  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+    .reveal-left.visible, .reveal-right.visible { opacity:1; transform:translateX(0); }
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+    .delay-4 { transition-delay: 0.6s; }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services {
+      background: var(--dark);
+      padding-bottom: 6rem;
+    }
+    .services-header {
+      max-width: 1100px; margin: 0 auto 5rem;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 2rem;
+    }
+
+    .services-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      border: 1.5px solid rgba(255,255,255,0.05);
+    }
+
+    .service-card {
+      background: var(--dark-2);
+      padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      transition: background 0.4s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(45,106,79,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .service-card:hover { background: var(--dark-3); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border: 1px solid rgba(82,183,136,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+      background: rgba(45,106,79,0.1);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .service-card:hover .service-icon { border-color: var(--green-light); background: rgba(45,106,79,0.2); }
+
+    .service-number {
+      position: absolute; top: 2rem; right: 2rem;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      transition: color 0.4s;
+    }
+    .service-card:hover .service-number { color: rgba(82,183,136,0.06); }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .service-desc {
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--grey-2);
+      line-height: 1.8;
+    }
+    .service-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 2rem;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      transition: gap 0.3s;
+    }
+    .service-link:hover { gap: 0.8rem; }
+    .service-link svg { width: 14px; height: 14px; }
+
+    /* ============================================================
+       PORTFOLIO
+    ============================================================ */
+    #portfolio { background: var(--black); }
+
+    .portfolio-header {
+      max-width: 1100px; margin: 0 auto 4rem;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 2rem;
+    }
+
+    .portfolio-filter {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 0.5rem 1.2rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green);
+    }
+
+    .portfolio-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-auto-rows: 260px;
+      gap: 4px;
+    }
+
+    .port-item {
+      position: relative; overflow: hidden;
+      background: var(--dark-3);
+      cursor: pointer;
+    }
+    /* Note: layout now uses a responsive auto-fit grid instead of a
+       fixed mosaic, so any number of portfolio items can be added
+       here without needing new CSS rules. */
+
+    .port-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+      transition: transform 0.8s var(--ease-out), filter 0.5s;
+    }
+    .port-item:hover .port-img {
+      transform: scale(1.06);
+      filter: brightness(0.5) saturate(1);
+    }
+
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 2rem;
+    }
+    .port-item:hover .port-overlay { opacity: 1; }
+
+    .port-cat {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.4rem;
+    }
+    .port-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    /* placeholder colored backgrounds when no real images */
+    .port-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .port-placeholder { background: linear-gradient(135deg, #0a1a0a 0%, #1a3520 100%); }
+
+    .port-drone-icon {
+      font-size: clamp(2rem, 4vw, 4rem);
+      opacity: 0.12;
+      color: var(--green-light);
+    }
+
+    /* Video card play button */
+    .port-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .port-play-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(82,183,136,0.85);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .port-play-btn::after {
+      content: '';
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #050505;
+      margin-left: 4px;
+    }
+    .port-item:hover .port-play-btn {
+      transform: scale(1.15);
+      background: rgba(82,183,136,1);
+    }
+
+    /* ============================================================
+       PROCESS
+    ============================================================ */
+    #process {
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .process-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      display: flex; gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      cursor: default;
+      transition: background 0.3s;
+    }
+    .process-step:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      min-width: 60px;
+      transition: color 0.3s;
+    }
+    .process-step:hover .step-num { color: rgba(82,183,136,0.2); }
+
+    .step-content {}
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--grey-2);
+      line-height: 1.8;
+    }
+
+    .process-visual {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: var(--dark-2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-visual-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(45,106,79,0.2) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    .process-visual-text {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 6rem);
+      color: rgba(255,255,255,0.06);
+      text-align: center;
+      letter-spacing: 0.05em;
+      z-index: 1;
+    }
+    .process-visual-text span { display: block; color: var(--green-glow); opacity: 0.3; font-size: 0.4em; letter-spacing: 0.3em; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { background: var(--black); }
+    .about-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-img-frame {
+      position: relative;
+      border: 1px solid rgba(82,183,136,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 0.85;
+      background: var(--dark-2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-img-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(45,106,79,0.15) 0%, transparent 50%);
+    }
+    .about-img-bg {
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 70% 70% at 50% 60%, rgba(45,106,79,0.25) 0%, transparent 70%),
+        linear-gradient(180deg, #0a1a0f 0%, #050905 100%);
+    }
+    .about-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--green);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(45,106,79,0.4);
+    }
+    .badge-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+      display: block;
+    }
+    .badge-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    .about-content {}
+    .about-content .section-desc { max-width: 100%; margin-bottom: 1.5rem; }
+
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2.5rem;
+    }
+    .highlight-item {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .highlight-item:hover { border-color: rgba(82,183,136,0.2); }
+    .highlight-icon { font-size: 1.2rem; margin-bottom: 0.6rem; }
+    .highlight-title {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .highlight-text {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--grey-2);
+      line-height: 1.7;
+    }
+
+    .about-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials {
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .testimonials-header {
+      max-width: 1100px; margin: 0 auto 4rem; text-align: center;
+    }
+    .testimonials-header .section-label { display: block; text-align: center; }
+
+    .testimonials-track {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 4px;
+      padding: 2.5rem;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(82,183,136,0.15); transform: translateY(-4px); }
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 6rem;
+      line-height: 1;
+      color: rgba(82,183,136,0.1);
+      position: absolute; top: 1rem; left: 1.5rem;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--grey-2);
+      line-height: 1.8;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .author-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--grey-3);
+      margin-top: 0.15rem;
+    }
+    .stars {
+      color: var(--green-light);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { background: var(--black); }
+    .contact-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .contact-info .section-desc { max-width: 100%; margin-bottom: 2.5rem; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 1.2rem;
+      padding: 1.5rem;
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .contact-detail:hover { border-color: rgba(82,183,136,0.15); }
+    .detail-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(45,106,79,0.15);
+      border: 1px solid rgba(82,183,136,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .detail-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 0.2rem;
+    }
+    .detail-value {
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      color: var(--grey-1);
+    }
+
+    /* Form */
+    .contact-form-wrap {}
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-bottom: 1rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 0.9rem 1.1rem;
+      color: var(--grey-1);
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--grey-3); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-light);
+      background: var(--dark-3);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234b5563' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      cursor: pointer;
+    }
+    .form-group select option { background: var(--dark-2); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 1.1rem;
+      background: var(--green);
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+    .form-submit:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(45,106,79,0.35);
+    }
+    .form-submit:active { transform: translateY(0); }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    #cta-band {
+      background:
+        linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      padding: 5rem 4rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 0%, rgba(0,0,0,0.3) 0%, transparent 70%);
+    }
+    .cta-band-content { position: relative; z-index: 1; }
+    .cta-band-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .cta-band-sub {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2.5rem;
+    }
+    .cta-band-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--white);
+      color: var(--green);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.5rem;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .cta-band-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: #030404;
+      padding: 5rem 4rem 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-top {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem; margin-bottom: 4rem;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+    .footer-logo .g-mark-svg { height: 2.4rem; width: auto; }
+    .footer-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--grey-3);
+      line-height: 1.8;
+      max-width: 240px;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex; gap: 0.8rem;
+    }
+    .social-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      color: var(--grey-3);
+      transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--green-light); color: var(--green-light); background: rgba(82,183,136,0.1); }
+
+    .footer-col-title {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .footer-links a {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--grey-3);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--green-light); }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-copy {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      color: var(--grey-3);
+    }
+    .footer-copy span { color: var(--green-light); }
+    .footer-legal {
+      display: flex; gap: 1.5rem;
+    }
+    .footer-legal a {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--grey-3);
+      transition: color 0.3s;
+    }
+    .footer-legal a:hover { color: var(--grey-2); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      section { padding: 6rem 2.5rem; }
+      #nav, #nav.scrolled { padding: 1.2rem 2.5rem; }
+      #stats { padding: 2rem 2.5rem; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-divider { display: none; }
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: 220px;
+      }
+      .process-inner, .about-inner, .contact-inner {
+        grid-template-columns: 1fr; gap: 3rem;
+      }
+      .about-visual { order: -1; }
+      .about-badge { right: 1rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      #stats { padding: 2rem 1.5rem; }
+      section { padding: 5rem 1.5rem; }
+      .testimonials-track { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      #cta-band { padding: 4rem 1.5rem; }
+      .services-header, .portfolio-header { flex-direction: column; align-items: flex-start; }
+      .about-highlights { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .process-inner { gap: 2rem; }
+    }
+
+    /* ============================================================
+       NOTIFICATION
+    ============================================================ */
+    .notification {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--dark-3);
+      border: 1px solid rgba(82,183,136,0.3);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--white);
+      z-index: 9000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.4s var(--ease-out), opacity 0.4s;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .notification.show { transform: translateY(0); opacity: 1; }
+    .notification-icon { font-size: 1.1rem; }
+
+    /* ============================================================
+       DRONE
+    ============================================================ */
+    #drone {
+      position: fixed;
+      width: 72px; height: 72px;
+      pointer-events: none;
+      z-index: 6;
+      filter: drop-shadow(0 0 7px rgba(82,183,136,0.7));
+      will-change: transform, left, top;
+      transition: left 2.4s cubic-bezier(0.45, 0, 0.55, 1),
+                  top  2.4s cubic-bezier(0.45, 0, 0.55, 1);
+    }
+    #drone svg { width: 100%; height: 100%; }
+
+    @keyframes rotor-cw  { to { transform: rotate(360deg);  } }
+    @keyframes rotor-ccw { to { transform: rotate(-360deg); } }
+    @keyframes drone-bob { 0%,100% { margin-top:0; } 50% { margin-top:-4px; } }
+    @keyframes led-blink { 0%,45%  { opacity:1; } 50%,95% { opacity:0.15; } 100% { opacity:1; } }
+
+    .r-cw  { animation: rotor-cw  0.09s linear infinite; }
+    .r-ccw { animation: rotor-ccw 0.09s linear infinite; }
+    #drone-wrap { animation: drone-bob 1.8s ease-in-out infinite; }
+    .drone-led  { animation: led-blink 1.4s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       DRONE
+  ============================================================ -->
+  <div id="drone" style="left: 116.55px; top: 948.267px; transform: rotate(217.732deg) perspective(200px) rotateX(14deg);">
+    <div id="drone-wrap">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arms -->
+        <line x1="40" y1="40" x2="14" y2="14" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"></line>
+        <line x1="40" y1="40" x2="66" y2="14" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"></line>
+        <line x1="40" y1="40" x2="14" y2="66" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"></line>
+        <line x1="40" y1="40" x2="66" y2="66" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"></line>
+        <!-- Rotor rings -->
+        <circle cx="14" cy="14" r="10" stroke="#52b788" stroke-width="1.5" fill="rgba(82,183,136,0.08)"></circle>
+        <circle cx="66" cy="14" r="10" stroke="#52b788" stroke-width="1.5" fill="rgba(82,183,136,0.08)"></circle>
+        <circle cx="14" cy="66" r="10" stroke="#52b788" stroke-width="1.5" fill="rgba(82,183,136,0.08)"></circle>
+        <circle cx="66" cy="66" r="10" stroke="#52b788" stroke-width="1.5" fill="rgba(82,183,136,0.08)"></circle>
+        <!-- Rotor blades: diagonal pair spins CW, other pair CCW -->
+        <g class="r-cw" style="transform-origin:14px 14px">
+          <rect x="5" y="12.5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+          <rect x="12.5" y="5" width="3" height="18" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+        </g>
+        <g class="r-ccw" style="transform-origin:66px 14px">
+          <rect x="57" y="12.5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+          <rect x="64.5" y="5" width="3" height="18" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+        </g>
+        <g class="r-ccw" style="transform-origin:14px 66px">
+          <rect x="5" y="64.5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+          <rect x="12.5" y="57" width="3" height="18" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+        </g>
+        <g class="r-cw" style="transform-origin:66px 66px">
+          <rect x="57" y="64.5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+          <rect x="64.5" y="57" width="3" height="18" rx="1.5" fill="rgba(255,255,255,0.8)"></rect>
+        </g>
+        <!-- Body -->
+        <rect x="32" y="32" width="16" height="16" rx="4" fill="#1a3d2b" stroke="#52b788" stroke-width="1.5"></rect>
+        <!-- Camera lens -->
+        <circle cx="40" cy="40" r="3.5" fill="#050505" stroke="#52b788" stroke-width="1"></circle>
+        <circle cx="40" cy="40" r="1.5" fill="#52b788" opacity="0.5"></circle>
+        <!-- LED -->
+        <circle cx="40" cy="33.5" r="1.5" fill="#74c69d" class="drone-led"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div id="cursor-dot" style="left: 1516px; top: 139px;"></div>
+  <div id="cursor-ring" style="left: 1516px; top: 139px;"></div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <span class="notification-icon">✅</span>
+    <span id="notification-msg">Message sent! We'll be in touch shortly.</span>
+  </div>
+
+  <!-- ============================================================
+       PRELOADER
+  ============================================================ -->
+  <div id="preloader" class="hidden">
+    <div class="preloader-logo">
+      <svg class="g-mark-svg" viewBox="-6 -4 82 94" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="C7 Industries" role="img">
+        <path d="M 55,20 A 32,32 0 1 0 55,60" stroke="#52b788" stroke-width="7" stroke-linecap="round"></path>
+        <path d="M 26,40 L 56,40 L 35,76" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    <div class="preloader-line"></div>
+    <div class="preloader-sub">Industries LLC</div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="nav">
+    <a href="https://c7industriesllc.com/#hero" class="nav-logo">
+      <svg class="g-mark-svg" viewBox="-6 -4 82 94" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="C7" role="img">
+        <path d="M 55,20 A 32,32 0 1 0 55,60" stroke="#52b788" stroke-width="7" stroke-linecap="round"></path>
+        <path d="M 26,40 L 56,40 L 35,76" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span class="nav-logo-text">INDUSTRIES LLC</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://c7industriesllc.com/#services">Services</a></li>
+      <li><a href="https://c7industriesllc.com/#portfolio">Work</a></li>
+      <li><a href="https://c7industriesllc.com/#process">Process</a></li>
+      <li><a href="https://c7industriesllc.com/#about">About</a></li>
+      <li><a href="https://c7industriesllc.com/#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="https://c7industriesllc.com/#services" onclick="closeMobile()">Services</a>
+    <a href="https://c7industriesllc.com/#portfolio" onclick="closeMobile()">Work</a>
+    <a href="https://c7industriesllc.com/#process" onclick="closeMobile()">Process</a>
+    <a href="https://c7industriesllc.com/#about" onclick="closeMobile()">About</a>
+    <a href="https://c7industriesllc.com/#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <!-- Particles -->
+    <div class="hero-particles" id="particles"><div class="particle" style="left: 58.2623%; bottom: 3.10246%; --dur: 7.674974125025556s; --delay: 2.72774151209631s; --drift: -19.06478776627992px;"></div><div class="particle" style="left: 99.755%; bottom: 6.31142%; --dur: 12.411338343289426s; --delay: 0.29682499407799234s; --drift: 10.155152225770587px;"></div><div class="particle" style="left: 28.784%; bottom: 4.95814%; --dur: 12.91007575523166s; --delay: 0.6190982241173142s; --drift: 1.2618140653206655px;"></div><div class="particle" style="left: 86.9489%; bottom: 2.80974%; --dur: 10.410123140557667s; --delay: 7.386158477728527s; --drift: 29.978880871693665px;"></div><div class="particle" style="left: 52.1958%; bottom: 9.83626%; --dur: 7.728053826550572s; --delay: 1.5906033199484568s; --drift: -6.718984268123922px;"></div><div class="particle" style="left: 95.7487%; bottom: 11.7874%; --dur: 8.79790422222209s; --delay: 0.3272325663897151s; --drift: -1.3963862287374695px;"></div><div class="particle" style="left: 73.481%; bottom: 13.3188%; --dur: 10.036394019439326s; --delay: 3.957607895056584s; --drift: -8.925966249771662px;"></div><div class="particle" style="left: 35.2454%; bottom: 0.657687%; --dur: 6.026223706694481s; --delay: 6.596343181627265s; --drift: 15.676277881174299px;"></div><div class="particle" style="left: 33.3148%; bottom: 8.04115%; --dur: 10.491082660982991s; --delay: 4.065617208137936s; --drift: -14.029048691546544px;"></div><div class="particle" style="left: 64.5024%; bottom: 15.6629%; --dur: 13.504789193004786s; --delay: 2.20610987833624s; --drift: 7.541458525092972px;"></div><div class="particle" style="left: 54.9448%; bottom: 7.2516%; --dur: 7.314842365946244s; --delay: 4.994596814954897s; --drift: 10.187979513879819px;"></div><div class="particle" style="left: 93.265%; bottom: 0.437676%; --dur: 8.007166704647164s; --delay: 1.2603727063717391s; --drift: 33.398113052970885px;"></div><div class="particle" style="left: 81.2475%; bottom: 0.824173%; --dur: 11.071618941555071s; --delay: 5.207631307517658s; --drift: 4.1520203872201655px;"></div><div class="particle" style="left: 59.9684%; bottom: 18.4474%; --dur: 10.083551108588612s; --delay: 1.9502566747292898s; --drift: 18.40766953379033px;"></div><div class="particle" style="left: 90.7985%; bottom: 19.6782%; --dur: 8.59929156402966s; --delay: 5.241112298084922s; --drift: 22.27477366897557px;"></div><div class="particle" style="left: 47.0552%; bottom: 6.0418%; --dur: 13.366128018701197s; --delay: 0.5497650608568465s; --drift: 27.337552647581695px;"></div><div class="particle" style="left: 17.4863%; bottom: 7.63565%; --dur: 11.035284592425885s; --delay: 1.078457708963172s; --drift: -11.642630933409688px;"></div><div class="particle" style="left: 74.7225%; bottom: 12.4072%; --dur: 13.8375302337914s; --delay: 7.248935237380304s; --drift: -38.54361562069841px;"></div><div class="particle" style="left: 12.79%; bottom: 13.0972%; --dur: 9.774414413164699s; --delay: 5.331183338457729s; --drift: 24.18493794668673px;"></div><div class="particle" style="left: 15.0408%; bottom: 0.142366%; --dur: 13.486097262191008s; --delay: 7.36073970166662s; --drift: -34.8223013935069px;"></div><div class="particle" style="left: 53.2424%; bottom: 10.0043%; --dur: 10.5702718701266s; --delay: 0.14626878690113632s; --drift: -37.23680104226435px;"></div><div class="particle" style="left: 0.548481%; bottom: 19.5806%; --dur: 10.088290719914863s; --delay: 3.8867550349916167s; --drift: -27.85525518701882px;"></div><div class="particle" style="left: 13.4829%; bottom: 6.60831%; --dur: 9.548548934342236s; --delay: 7.332860284257308s; --drift: -11.306387046193374px;"></div><div class="particle" style="left: 98.8914%; bottom: 12.9946%; --dur: 11.207877451498824s; --delay: 0.06756306193818773s; --drift: -27.089717748568162px;"></div><div class="particle" style="left: 35.4874%; bottom: 19.349%; --dur: 10.398327886429303s; --delay: 3.697449582821953s; --drift: -32.853796888897726px;"></div><div class="particle" style="left: 64.1336%; bottom: 3.80435%; --dur: 7.463398557789995s; --delay: 6.6120380809535115s; --drift: -12.320256931029476px;"></div><div class="particle" style="left: 91.0341%; bottom: 8.16634%; --dur: 10.955783496878636s; --delay: 7.899637902863392s; --drift: 17.619587394584826px;"></div><div class="particle" style="left: 41.4686%; bottom: 15.4036%; --dur: 7.983304870704562s; --delay: 6.737922807466389s; --drift: -35.20678069254199px;"></div><div class="particle" style="left: 91.5904%; bottom: 12.4188%; --dur: 12.02613635982322s; --delay: 5.7771023923751965s; --drift: -13.400729719100193px;"></div><div class="particle" style="left: 82.9496%; bottom: 15.3266%; --dur: 11.441053607897686s; --delay: 2.7406620297871704s; --drift: -32.459235734319066px;"></div></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Northwest Arkansas · Aerial Specialists</p>
+      <h1 class="hero-title">
+        <span class="line">See the</span>
+        <span class="line">World</span>
+        <span class="line">Different</span>
+      </h1>
+      <p class="hero-sub">
+        Cinematic drone video &amp; photography for real estate, commercial,
+        and creative projects across Northwest Arkansas and beyond.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://c7industriesllc.com/#contact" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          Get a Free Quote
+        </a>
+        <a href="https://c7industriesllc.com/#portfolio" class="btn-outline">
+          View Our Work
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" onclick="document.getElementById(&#39;stats&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS
+  ============================================================ -->
+  <section id="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="count" data-target="200">0</span><span>+</span></div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item reveal delay-1">
+        <div class="stat-number"><span class="count" data-target="5">0</span><span>+</span></div>
+        <div class="stat-label">Years in the Air</div>
+      </div>
+      <div class="stat-item reveal delay-2">
+        <div class="stat-number"><span class="count" data-target="43">0</span></div>
+        <div class="stat-label">Videos Published</div>
+      </div>
+      <div class="stat-item reveal delay-3">
+        <div class="stat-number"><span class="count" data-target="100">0</span><span>%</span></div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <p class="section-label reveal">What We Do</p>
+        <h2 class="section-title reveal delay-1">Our Services</h2>
+        <p class="section-desc reveal delay-2">
+          From sweeping real estate reveals to commercial brand films,
+          every project is crafted with cinematic precision.
+        </p>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-number">01</div>
+        <div class="service-icon">🏠</div>
+        <h3 class="service-title">Real Estate Photography</h3>
+        <p class="service-desc">Stunning aerial perspectives that make properties sell faster. Capture scale, location, and curb appeal like never before.</p>
+        <a href="https://c7industriesllc.com/#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+
+      <div class="service-card reveal delay-1">
+        <div class="service-number">02</div>
+        <div class="service-icon">🎬</div>
+        <h3 class="service-title">Cinematic Drone Video</h3>
+        <p class="service-desc">4K cinematic footage with professional color grading. Tell your story from a perspective that commands attention.</p>
+        <a href="https://c7industriesllc.com/#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+
+      <div class="service-card reveal delay-2">
+        <div class="service-number">03</div>
+        <div class="service-icon">🏗️</div>
+        <h3 class="service-title">Commercial &amp; Industrial</h3>
+        <p class="service-desc">Site surveys, construction progress, infrastructure documentation — delivered with precision and professionalism.</p>
+        <a href="https://c7industriesllc.com/#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+
+      <div class="service-card reveal delay-3">
+        <div class="service-number">04</div>
+        <div class="service-icon">🌄</div>
+        <h3 class="service-title">Events &amp; Landscapes</h3>
+        <p class="service-desc">Capture the full scope of outdoor events, festivals, or the breathtaking landscapes of Northwest Arkansas from above.</p>
+        <a href="https://c7industriesllc.com/#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PORTFOLIO
+  ============================================================ -->
+  <section id="portfolio">
+    <div class="portfolio-header">
+      <div>
+        <p class="section-label reveal">Featured Work</p>
+        <h2 class="section-title reveal delay-1">Our Portfolio</h2>
+      </div>
+      <div class="portfolio-filter reveal delay-2">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="real-estate">Real Estate Aerial Tours</button>
+        <button class="filter-btn" data-filter="scenic">Scenic &amp; Landscape</button>
+        <button class="filter-btn" data-filter="community">Community &amp; Events</button>
+        <button class="filter-btn" data-filter="construction">Construction &amp; Development</button>
+        <button class="filter-btn" data-filter="best-of">Best of C7</button>
+      </div>
+    </div>
+
+    <div class="portfolio-grid reveal">
+      <a class="port-item" data-category="real-estate" href="https://www.youtube.com/watch?v=wmSH-_IT4Ro" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/wmSH-_IT4Ro/maxresdefault.jpg" alt="15451 Winn Creek Rd West Fork AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">15451 Winn Creek Rd — West Fork, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=G0JY2YEdizk" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/G0JY2YEdizk/maxresdefault.jpg" alt="Sunrise in January">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">Sunrise in January</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="construction" href="https://www.youtube.com/watch?v=TT6MWymnAnE" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/TT6MWymnAnE/maxresdefault.jpg" alt="A Team Construction Springdale Fire Station 10">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Construction &amp; Development</p>
+          <p class="port-title">A Team Construction — Springdale Fire Station 10</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="real-estate" href="https://www.youtube.com/watch?v=oBJZT__t3bY" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/oBJZT__t3bY/maxresdefault.jpg" alt="1659 Madison 6601 Huntsville">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">1659 Madison 6601 — Huntsville, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="real-estate" href="https://www.youtube.com/watch?v=soCXj0CGAiQ" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/soCXj0CGAiQ/maxresdefault.jpg" alt="C7 Industries LLC Real Estate Aerial">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">C7 Industries LLC</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=jNj80hIO6bI" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/jNj80hIO6bI/maxresdefault.jpg" alt="C7 Industries LLC Scenic Aerial">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">C7 Industries LLC</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=ZQdmS8_JNZ4" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/ZQdmS8_JNZ4/maxresdefault.jpg" alt="Sunrise 10 22 2024">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">Sunrise — Oct 22, 2024</p>
+        </div>
+      </a>
+      <div class="port-item" data-category="construction">
+        <div class="port-placeholder">
+          <span class="port-drone-icon">🏢</span>
+        </div>
+        <div class="port-overlay">
+          <p class="port-cat">Construction &amp; Development</p>
+          <p class="port-title">NW Arkansas Development</p>
+        </div>
+      </div>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=QzbJ8ivTSKE" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/QzbJ8ivTSKE/maxresdefault.jpg" alt="Lake Tahoe Cave Rock">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">Lake Tahoe Cave Rock</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="community" href="https://www.youtube.com/watch?v=HbXbYnCusP0" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/HbXbYnCusP0/maxresdefault.jpg" alt="Fayetteville Square">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Community &amp; Events</p>
+          <p class="port-title">Fayetteville Square</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="construction" href="https://www.youtube.com/watch?v=zZBKU2HdMyI" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/zZBKU2HdMyI/maxresdefault.jpg" alt="A+ Towing Huntsville AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Construction &amp; Development</p>
+          <p class="port-title">A+ Towing — Huntsville, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=ahpTjz0I5FI" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/ahpTjz0I5FI/maxresdefault.jpg" alt="New Mexico 2026 FPV Drone">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">New Mexico 2026 — FPV Drone</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="construction" href="https://www.youtube.com/watch?v=afI7rNiN-No" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/afI7rNiN-No/maxresdefault.jpg" alt="Urban Dumpsters Madison Co AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Construction &amp; Development</p>
+          <p class="port-title">Urban Dumpsters — Madison Co, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="real-estate" href="https://www.youtube.com/watch?v=6-00GpqCgkg" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/6-00GpqCgkg/maxresdefault.jpg" alt="274 Madison 3500 Witter AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">274 Madison 3500 — Witter, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="community" href="https://www.youtube.com/watch?v=yTCCN6Mjveo" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/yTCCN6Mjveo/maxresdefault.jpg" alt="The Promenade at Pinnacle Hills">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Community &amp; Events</p>
+          <p class="port-title">The Promenade at Pinnacle Hills</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="community" href="https://www.youtube.com/watch?v=FA08krW_nas" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/FA08krW_nas/maxresdefault.jpg" alt="Olive and Magdalene Company Huntsville AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Community &amp; Events</p>
+          <p class="port-title">Olive and Magdalene Company — Huntsville, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="community" href="https://www.youtube.com/watch?v=PhZtHIhjQyI" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/PhZtHIhjQyI/maxresdefault.jpg" alt="Huntsville Square Aerial Drone Footage">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Community &amp; Events</p>
+          <p class="port-title">Huntsville Square</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="scenic" href="https://www.youtube.com/watch?v=YWMOQaR6e8Q" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/YWMOQaR6e8Q/maxresdefault.jpg" alt="Coler Mountain Bike Park Preserve Bentonville AR">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Scenic &amp; Landscape</p>
+          <p class="port-title">Coler Mountain Bike Park Preserve — Bentonville, AR</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+  ============================================================ -->
+  <section id="process">
+    <div class="process-inner">
+      <div>
+        <p class="section-label reveal">How It Works</p>
+        <h2 class="section-title reveal delay-1">From Concept<br>to Delivery</h2>
+        <div class="process-steps">
+          <div class="process-step reveal delay-2">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3 class="step-title">Consult &amp; Plan</h3>
+              <p class="step-desc">We discuss your vision, location requirements, and deliverables. No surprises — clear scope from day one.</p>
+            </div>
+          </div>
+          <div class="process-step reveal delay-3">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3 class="step-title">Capture</h3>
+              <p class="step-desc">Our FAA-certified pilots capture professional-grade 4K footage, adapting to weather, light, and conditions in real time.</p>
+            </div>
+          </div>
+          <div class="process-step reveal delay-4">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3 class="step-title">Edit &amp; Deliver</h3>
+              <p class="step-desc">Cinematic color grading, professional editing, and fast turnaround. Delivered in your preferred format, ready to publish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="process-visual reveal-right">
+        <div class="process-visual-bg"></div>
+        <div class="process-visual-text">
+          C7
+          <span>Drone · Video · Photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-visual reveal-left">
+        <div class="about-img-frame">
+          <div class="about-img-bg"></div>
+        </div>
+        <div class="about-badge">
+          <span class="badge-num">FAA</span>
+          <span class="badge-label">Certified Pilots</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-label reveal">About C7 Industries</p>
+        <h2 class="section-title reveal delay-1">Built for<br>Northwest Arkansas</h2>
+        <p class="section-desc reveal delay-2">
+          Based in Huntsville, AR, C7 Industries LLC is Northwest Arkansas'
+          premier drone video and photography company. We serve the Fayetteville,
+          Bentonville, Springdale, Eureka Springs, and Rogers markets with
+          professional-grade aerial content.
+        </p>
+        <p class="section-desc reveal delay-3" style="margin-top:1rem;">
+          Every project is personal. We take the time to understand your goals
+          and deliver imagery that elevates your brand, sells your property,
+          or captures your story from a perspective no one else can offer.
+        </p>
+        <div class="about-highlights reveal delay-4">
+          <div class="highlight-item">
+            <div class="highlight-icon">✈️</div>
+            <div class="highlight-title">FAA Certified</div>
+            <div class="highlight-text">Fully licensed Part 107 commercial drone operators</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🎥</div>
+            <div class="highlight-title">4K Footage</div>
+            <div class="highlight-text">Professional-grade cameras with cinema color profiles</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">⚡</div>
+            <div class="highlight-title">Fast Turnaround</div>
+            <div class="highlight-text">Most projects delivered within 48–72 hours</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📍</div>
+            <div class="highlight-title">Local Experts</div>
+            <div class="highlight-text">Deep knowledge of NWA terrain, airspace &amp; regulations</div>
+          </div>
+        </div>
+        <div class="about-cta reveal delay-4">
+          <a href="https://c7industriesllc.com/#contact" class="btn-primary">Work With Us</a>
+          <a href="https://www.youtube.com/@C7IndustriesLLC" target="_blank" class="btn-outline">Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section id="testimonials">
+    <div class="testimonials-header">
+      <p class="section-label reveal">Client Stories</p>
+      <h2 class="section-title reveal delay-1">What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"C7 captured our property in a way we never imagined. The aerial video sold the listing in 3 days. Absolutely worth every penny."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <p class="author-name">Sarah M.</p>
+            <p class="author-role">Real Estate Agent · Fayetteville, AR</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Professional, creative, and delivered on time. The construction site footage exceeded our expectations and made our investor presentation shine."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <p class="author-name">James R.</p>
+            <p class="author-role">Project Manager · Bentonville, AR</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"We hired C7 for our outdoor event coverage. The drone footage was cinematic gold — our attendees couldn't believe the scale it captured."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div>
+            <p class="author-name">Linda K.</p>
+            <p class="author-role">Event Coordinator · Rogers, AR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="section-label reveal">Get in Touch</p>
+        <h2 class="section-title reveal delay-1">Let's Create<br>Something Great</h2>
+        <p class="section-desc reveal delay-2">
+          Ready to see your project from a new perspective?
+          Fill out the form and we'll get back to you within one business day.
+        </p>
+        <div class="contact-details">
+          <div class="contact-detail reveal delay-2">
+            <div class="detail-icon">📞</div>
+            <div>
+              <p class="detail-label">Phone</p>
+              <p class="detail-value"><a href="tel:+14797890918">+1 (479) 789-0918</a></p>
+            </div>
+          </div>
+          <div class="contact-detail reveal delay-3">
+            <div class="detail-icon">✉️</div>
+            <div>
+              <p class="detail-label">Email</p>
+              <p class="detail-value"><a href="mailto:c7industriesllc@gmail.com">c7industriesllc@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-detail reveal delay-4">
+            <div class="detail-icon">📍</div>
+            <div>
+              <p class="detail-label">Service Area</p>
+              <p class="detail-value">Fayetteville · Bentonville · Springdale · Rogers · Eureka Springs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal-right">
+        <form id="contactForm" method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Gabriel" required="">
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="DeLaurie" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required="">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required="">
+              <option value="" disabled="" selected="">Select a service...</option>
+              <option value="real-estate">Real Estate Photography &amp; Video</option>
+              <option value="cinematic">Cinematic Drone Video</option>
+              <option value="commercial">Commercial / Industrial</option>
+              <option value="events">Events &amp; Landscapes</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project</label>
+            <textarea id="message" name="message" placeholder="Location, timeline, specific shots needed..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Send My Request →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA BAND
+  ============================================================ -->
+  <div id="cta-band">
+    <div class="cta-band-content reveal">
+      <h2 class="cta-band-title">Ready to Fly?</h2>
+      <p class="cta-band-sub">Book your shoot today — slots fill fast.</p>
+      <a href="tel:+14797890918" class="cta-band-btn">
+        Call +1 (479) 789-0918
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="g-mark-svg" viewBox="-6 -4 82 94" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="C7" role="img">
+            <path d="M 55,20 A 32,32 0 1 0 55,60" stroke="#52b788" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M 26,40 L 56,40 L 35,76" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="footer-logo-text">Industries LLC</span>
+        </div>
+        <p class="footer-tagline">Northwest Arkansas' premier aerial drone video &amp; photography company.</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@C7IndustriesLLC" target="_blank" class="social-link" aria-label="YouTube">▶</a>
+          <a href="https://www.facebook.com/C7IndustriesLLC" target="_blank" class="social-link" aria-label="Facebook">f</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="https://c7industriesllc.com/#services">Real Estate</a></li>
+          <li><a href="https://c7industriesllc.com/#services">Cinematic Video</a></li>
+          <li><a href="https://c7industriesllc.com/#services">Commercial</a></li>
+          <li><a href="https://c7industriesllc.com/#services">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="https://c7industriesllc.com/#about">About Us</a></li>
+          <li><a href="https://c7industriesllc.com/#portfolio">Portfolio</a></li>
+          <li><a href="https://c7industriesllc.com/#process">Process</a></li>
+          <li><a href="https://c7industriesllc.com/#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li><a href="tel:+14797890918">(479) 789-0918</a></li>
+          <li><a href="mailto:c7industriesllc@gmail.com">c7industriesllc@gmail.com</a></li>
+          <li><a href="https://c7industriesllc.com/#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="copyYear">2026</span> <span>C7 Industries LLC</span>. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="https://c7industriesllc.com/#">Privacy Policy</a>
+        <a href="https://c7industriesllc.com/#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── Footer year ────────────────────────────────────────────
+    const copyYearEl = document.getElementById('copyYear');
+    if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
+
+    // ── Preloader ──────────────────────────────────────────────
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 3000);
+    });
+
+    // ── Custom Cursor ──────────────────────────────────────────
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+    });
+
+    const animateRing = () => {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    };
+    animateRing();
+
+    document.querySelectorAll('a, button, .service-card, .port-item').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '56px'; ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(82,183,136,0.8)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '36px'; ring.style.height = '36px';
+        ring.style.borderColor = 'rgba(82,183,136,0.5)';
+      });
+    });
+
+    // ── Navbar scroll ──────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Mobile Menu ────────────────────────────────────────────
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    // ── Particles ──────────────────────────────────────────────
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.left   = Math.random() * 100 + '%';
+      p.style.bottom = Math.random() * 20 + '%';
+      p.style.setProperty('--dur',   (6 + Math.random() * 8) + 's');
+      p.style.setProperty('--delay', (Math.random() * 8) + 's');
+      p.style.setProperty('--drift', ((Math.random() - 0.5) * 80) + 'px');
+      container.appendChild(p);
+    }
+
+    // ── Scroll Reveal ──────────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Count-up ───────────────────────────────────────────────
+    const countEls = document.querySelectorAll('.count');
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el     = e.target;
+        const target = +el.dataset.target;
+        const dur    = 1800;
+        const step   = target / (dur / 16);
+        let current  = 0;
+        const timer  = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = Math.floor(current);
+        }, 16);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countObserver.observe(el));
+
+    // ── Portfolio Filter ───────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.port-item').forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.opacity = show ? '1' : '0.2';
+          item.style.pointerEvents = show ? 'auto' : 'none';
+          item.style.transition = 'opacity 0.4s';
+        });
+      });
+    });
+
+    // ── Contact Form ───────────────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const formData = new FormData(this);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        btn.textContent = '✓ Message Sent!';
+        showNotification('Message sent! We\'ll be in touch shortly.');
+        setTimeout(() => {
+          btn.textContent = 'Send My Request →';
+          btn.disabled = false;
+          this.reset();
+        }, 3000);
+      })
+      .catch(() => {
+        btn.textContent = 'Error — Try Again';
+        btn.disabled = false;
+      });
+    });
+
+    function showNotification(msg) {
+      const n = document.getElementById('notification');
+      document.getElementById('notification-msg').textContent = msg;
+      n.classList.add('show');
+      setTimeout(() => n.classList.remove('show'), 4000);
+    }
+
+    // ── Smooth active nav link ─────────────────────────────────
+    const sections = document.querySelectorAll('section[id], div[id="cta-band"]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + current
+          ? 'var(--white)' : '';
+      });
+    });
+
+    // ── Drone Flight ───────────────────────────────────────────
+    (function() {
+      const drone = document.getElementById('drone');
+      let posX = 120, posY = 120;
+      let targetX = posX, targetY = posY;
+      let tiltTimer = null;
+
+      // Start position
+      drone.style.left = posX + 'px';
+      drone.style.top  = posY + 'px';
+
+      function pickTarget() {
+        const pad = 90;
+        const W = window.innerWidth;
+        const H = window.innerHeight;
+
+        // Prefer edges/corners — the dark areas away from center content
+        const zones = [
+          // four corner zones
+          [pad, W * 0.25, pad, H * 0.3],
+          [W * 0.75, W - pad, pad, H * 0.3],
+          [pad, W * 0.25, H * 0.7, H - pad],
+          [W * 0.75, W - pad, H * 0.7, H - pad],
+          // mid-edge strips
+          [pad, W * 0.18, H * 0.2, H * 0.8],
+          [W * 0.82, W - pad, H * 0.2, H * 0.8],
+        ];
+        const z = zones[Math.floor(Math.random() * zones.length)];
+        targetX = z[0] + Math.random() * (z[1] - z[0]);
+        targetY = z[2] + Math.random() * (z[3] - z[2]);
+      }
+
+      function moveDrone() {
+        const dx = targetX - posX;
+        const dy = targetY - posY;
+
+        // Tilt drone toward direction of travel
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        const tilt  = Math.min(Math.sqrt(dx*dx + dy*dy) / 18, 14); // max 14° tilt
+        drone.style.transform = `rotate(${angle + 45}deg) perspective(200px) rotateX(${tilt}deg)`;
+
+        drone.style.left = targetX + 'px';
+        drone.style.top  = targetY + 'px';
+        posX = targetX;
+        posY = targetY;
+
+        // Reset tilt after arrival
+        clearTimeout(tiltTimer);
+        tiltTimer = setTimeout(() => {
+          drone.style.transform = 'rotate(0deg)';
+        }, 2500);
+
+        const delay = 2200 + Math.random() * 2800;
+        setTimeout(() => { pickTarget(); moveDrone(); }, delay);
+      }
+
+      // Kick off after preloader clears
+      setTimeout(() => { pickTarget(); moveDrone(); }, 3400);
+    })();
+  </script>
+
+
+</body></html>
