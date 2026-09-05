@@ -1316,6 +1316,92 @@
     .r-ccw { animation: rotor-ccw 0.09s linear infinite; }
     #drone-wrap { animation: drone-bob 1.8s ease-in-out infinite; }
     .drone-led  { animation: led-blink 1.4s ease-in-out infinite; }
+
+    /* ============================================================
+       PRICING
+    ============================================================ */
+    #pricing { background: var(--black); }
+    .pricing-header {
+      max-width: 1100px; margin: 0 auto 4rem;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 2rem;
+    }
+    .pricing-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      border: 1.5px solid rgba(255,255,255,0.05);
+    }
+    .price-card {
+      background: var(--dark-2);
+      padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: background 0.4s;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(45,106,79,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .price-card:hover { background: var(--dark-3); }
+    .price-card:hover::before { opacity: 1; }
+    .price-card.featured { background: var(--dark-3); }
+    .price-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--black); background: var(--green-light);
+      padding: 0.35rem 0.7rem; border-radius: 3px;
+    }
+    .price-name {
+      font-family: var(--font-ui);
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.2rem;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 3.6rem; line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.6rem;
+    }
+    .price-list { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+    .price-list li {
+      font-family: var(--font-ui);
+      font-size: 0.83rem; font-weight: 300; line-height: 1.6;
+      color: var(--grey-2);
+      padding-left: 1.2rem; margin-bottom: 0.7rem;
+      position: relative;
+    }
+    .price-list li::before {
+      content: '▸'; position: absolute; left: 0; top: 0;
+      color: var(--green-light); font-size: 0.7rem;
+    }
+    .price-list li strong { color: var(--grey-1); font-weight: 600; }
+    .pricing-foot {
+      max-width: 1100px; margin: 3rem auto 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .pricing-note {
+      font-family: var(--font-ui);
+      font-size: 0.85rem; font-weight: 300; line-height: 1.7;
+      color: var(--grey-2); max-width: 520px;
+    }
+    .pricing-note strong { color: var(--grey-1); font-weight: 600; }
+    .pricing-foot .btn-primary { white-space: nowrap; }
+    @media (max-width: 640px) {
+      .price-card { padding: 2.5rem 1.8rem; }
+      .price-amount { font-size: 3rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -1401,6 +1487,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="https://c7industriesllc.com/#services">Services</a></li>
+      <li><a href="https://c7industriesllc.com/#pricing">Pricing</a></li>
       <li><a href="https://c7industriesllc.com/#portfolio">Work</a></li>
       <li><a href="https://c7industriesllc.com/#process">Process</a></li>
       <li><a href="https://c7industriesllc.com/#about">About</a></li>
@@ -1415,6 +1502,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-close" id="mobileClose">✕</button>
     <a href="https://c7industriesllc.com/#services" onclick="closeMobile()">Services</a>
+    <a href="https://c7industriesllc.com/#pricing" onclick="closeMobile()">Pricing</a>
     <a href="https://c7industriesllc.com/#portfolio" onclick="closeMobile()">Work</a>
     <a href="https://c7industriesllc.com/#process" onclick="closeMobile()">Process</a>
     <a href="https://c7industriesllc.com/#about" onclick="closeMobile()">About</a>
@@ -1530,6 +1618,75 @@
         <p class="service-desc">Capture the full scope of outdoor events, festivals, or the breathtaking landscapes of Northwest Arkansas from above.</p>
         <a href="https://c7industriesllc.com/#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
       </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PRICING
+  ============================================================ -->
+  <section id="pricing">
+    <div class="pricing-header">
+      <div>
+        <p class="section-label reveal">Straightforward Pricing</p>
+        <h2 class="section-title reveal delay-1">Packages &amp; Rates</h2>
+        <p class="section-desc reveal delay-2">
+          No hourly guessing and no surprise invoices. Pick the package that fits
+          the property, and everything below is what you get.
+        </p>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-name">Photos Only</div>
+        <div class="price-amount">$150</div>
+        <ul class="price-list">
+          <li>Up to <strong>30 edited drone photos</strong></li>
+          <li>Drone + select ground angles</li>
+          <li>Full-resolution + web-sized files</li>
+          <li>MLS &amp; social ready</li>
+          <li>48-hour delivery</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured reveal delay-1">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Photos + Video</div>
+        <div class="price-amount">$300</div>
+        <ul class="price-list">
+          <li>Everything in Photos Only</li>
+          <li><strong>1:30–2:00 cinematic video</strong>, music + color grade</li>
+          <li>Uploaded to <strong>YouTube</strong> — shareable link ready to go</li>
+          <li>Finished <strong>MP4 file</strong> delivered to you</li>
+          <li>3–5 day delivery</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal delay-2">
+        <div class="price-name">Photos + Video + Social</div>
+        <div class="price-amount">$350</div>
+        <ul class="price-list">
+          <li>Everything in Photos + Video</li>
+          <li><strong>~30 second vertical social cut</strong></li>
+          <li>Built for Reels, TikTok &amp; YouTube Shorts</li>
+          <li>Delivered as its own MP4</li>
+          <li>3–5 day delivery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-foot reveal">
+      <p class="pricing-note">
+        Rates above cover <strong>real estate and small business</strong> work.
+        Commercial, multi-location and construction projects start at <strong>$250</strong>
+        and are laid out in full on the rate sheet — along with add-ons like FPV
+        fly-throughs, rush delivery and extra locations.
+      </p>
+      <a href="https://c7industriesllc.com/rate-sheet.pdf" class="btn-primary" target="_blank" rel="noopener">
+        2026 Rate Sheet (PDF)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
     </div>
   </section>
 
