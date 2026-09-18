@@ -694,6 +694,9 @@
       justify-content: flex-end; padding: 2rem;
     }
     .port-item:hover .port-overlay { opacity: 1; }
+    @media (hover: none) {
+      .port-overlay { opacity: 1; }
+    }
 
     .port-cat {
       font-family: var(--font-ui);
@@ -1727,6 +1730,38 @@
     </div>
 
     <div class="portfolio-grid reveal">
+      <a class="port-item" data-category="real-estate best-of" href="https://www.youtube.com/watch?v=vx215wd15TA" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/vx215wd15TA/maxresdefault.jpg" alt="4083 Madison 3375 Huntsville AR aerial drone video">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">4083 Madison 3375 &mdash; Huntsville, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="community best-of" href="https://www.youtube.com/watch?v=9lRIB4k60TQ" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/9lRIB4k60TQ/maxresdefault.jpg" alt="Huntsville Eagles football and 9/11 tribute aerial drone video">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Community &amp; Events</p>
+          <p class="port-title">Huntsville Eagles Football &amp; 9/11 Tribute</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="real-estate best-of" href="https://www.youtube.com/watch?v=gSIbDEvsW4A" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/gSIbDEvsW4A/maxresdefault.jpg" alt="23171 N Hickory Flat Rd Hindsville AR aerial drone video">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">23171 N Hickory Flat Rd &mdash; Hindsville, AR</p>
+        </div>
+      </a>
+      <a class="port-item" data-category="real-estate best-of" href="https://www.youtube.com/watch?v=obLJZeKrqlE" target="_blank" rel="noopener" style="text-decoration:none;">
+        <img class="port-img" src="https://img.youtube.com/vi/obLJZeKrqlE/maxresdefault.jpg" alt="37992 Highway 23 Huntsville AR aerial drone video">
+        <div class="port-play"><div class="port-play-btn"></div></div>
+        <div class="port-overlay">
+          <p class="port-cat">Real Estate Aerial Tours</p>
+          <p class="port-title">37992 Highway 23 &mdash; Huntsville, AR</p>
+        </div>
+      </a>
       <a class="port-item" data-category="real-estate" href="https://www.youtube.com/watch?v=wmSH-_IT4Ro" target="_blank" rel="noopener" style="text-decoration:none;">
         <img class="port-img" src="https://img.youtube.com/vi/wmSH-_IT4Ro/maxresdefault.jpg" alt="15451 Winn Creek Rd West Fork AR">
         <div class="port-play"><div class="port-play-btn"></div></div>
@@ -1872,6 +1907,8 @@
         </div>
       </a>
     </div>
+      <p id="portfolioEmpty" style="display:none;text-align:center;color:var(--green-3);font-family:Montserrat,sans-serif;letter-spacing:.06em;padding:48px 0;">No videos in this category yet &mdash; check back soon.</p>
+    
   </section>
 
   <!-- ============================================================
@@ -2288,12 +2325,15 @@
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
+        let shown = 0;
         document.querySelectorAll('.port-item').forEach(item => {
-          const show = filter === 'all' || item.dataset.category === filter;
-          item.style.opacity = show ? '1' : '0.2';
-          item.style.pointerEvents = show ? 'auto' : 'none';
-          item.style.transition = 'opacity 0.4s';
+          const cats = (item.dataset.category || '').split(' ');
+          const show = filter === 'all' || cats.includes(filter);
+          item.style.display = show ? '' : 'none';
+          if (show) shown++;
         });
+        const emptyEl = document.getElementById('portfolioEmpty');
+        if (emptyEl) emptyEl.style.display = shown ? 'none' : 'block';
       });
     });
 
